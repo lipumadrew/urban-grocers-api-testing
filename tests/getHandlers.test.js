@@ -11,17 +11,15 @@ test('status should be 200', async () => {
 		console.error(error);
 	}
 	
-	const data = await response.json();
+	
 	
 	expect(actualStatus).toBe(200);
 });
 
 test('list of couriers should be greater than 0', async () => {
 	let response;
-	let actualStatus;
 	try {
 		response = await fetch(`${config.API_URL}/api/v1/couriers`);
-		actualStatus = response.status;
 	} catch (error) {
 		console.error(error);
 	}
@@ -31,10 +29,8 @@ test('list of couriers should be greater than 0', async () => {
 
 test('the starting work hours should be before the ending work hours for all couriers', async () => {
 	let response;
-	let actualStatus;
 	try {
 		response = await fetch(`${config.API_URL}/api/v1/couriers`);
-		actualStatus = response.status;
 	} catch (error) {
 		console.error(error);
 	}

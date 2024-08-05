@@ -40,7 +40,6 @@ test('status should be 200', async () => {
 	expect(response.status).toBe(200);
 });
 
-//TODO, iterate through and check for the items, maybe by id or something
 test('items in kit should match what was changed', async () => {
 	let response;
     try {

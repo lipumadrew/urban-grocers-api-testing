@@ -1,11 +1,11 @@
 // eslint-disable-next-line no-undef
 const config = require('../config');
-const kitID = 7;
+const kitId = 7;
 
 test('response status should be 200', async () => {
 	let response;
     try {
-		response = await fetch(`${config.API_URL}/api/v1/kits/${kitID}`, {
+		response = await fetch(`${config.API_URL}/api/v1/kits/${kitId}`, {
 			method: 'DELETE',
 		});
 	} catch (error) {
@@ -18,7 +18,7 @@ test('response status should be 200', async () => {
 test('deleted kit should no longer exist', async () => {
 	let response;
 	try {
-		response = await fetch(`${config.API_URL}/api/v1/kits/${kitID}`)
+		response = await fetch(`${config.API_URL}/api/v1/kits/${kitId}`)
 	} catch (error) {
 		console.error(error);
 	}

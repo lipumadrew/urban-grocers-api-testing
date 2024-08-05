@@ -37,7 +37,34 @@ test('status should be 200', async () => {
 	} catch (error) {
 		console.error(error);
 	}
-	const data = await response.json();
-	console.log(data);
 	expect(response.status).toBe(200);
 });
+
+//TODO, iterate through and check for the items, maybe by id or something
+test('items in kit should match what was changed', async () => {
+	let response;
+    try {
+		response = await fetch(`${config.API_URL}/api/v1/kits/${kitId}`);
+	} catch (error) {
+		console.error(error);
+	}
+	const data = await response.json();
+    let requestIDs = [];
+    //iterate through request body and add IDs to an array
+    for (let i = 0; i < requestBody["productsList"].length; i++) {
+        requestIDs.push(requestBody["productsList"][i]["id"])
+    }
+
+    //iterate through data and add IDs to an array
+    let kitIDs = [];
+    for (let i = 0; i < data["productsList"].length; i++) {
+        kitIDs.push(data["productsList"][i]["id"])
+    }
+
+    //iterate through request IDs and check that the kit ID array contains each one
+    for (let i = 0; i < requestIDs.length; i++) {
+        expect(kitIDs).toContain(requestIDs[i]);
+    }
+    
+});
+

@@ -1,4 +1,4 @@
-# Sprint 7 project
+# Urban Grocers API Testing
 This project explores and demonstrates the use of Jest in order to test various endpoints from the Urban Grocers API. The project covers GET, PUT, DELETE, and POST requests. Each type of request has at least two tests in the suite, one to check the status of the request and another to verify the content of the response.
 ## Technologies and Techniques Used
 This project was created using VS Code as a code editor, and is primarily written using JavaScript and the Jest framework.
